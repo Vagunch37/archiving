@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  desc: MyText
+  notes: MyText
+  text_in: MyText
+  pub_reason: MyString
+  rec_reason: MyString
+  sound_type: MyString
+  edited_material: false
+  selling_detail_info: MyString
+  acceptable_viewer: false
+  item_special: false
+  item_importance: 1
+  count_killed: 1
+  count_injured: 1
+  count_male: 1
+  count_female: 1
+
+two:
+  name: MyString
+  desc: MyText
+  notes: MyText
+  text_in: MyText
+  pub_reason: MyString
+  rec_reason: MyString
+  sound_type: MyString
+  edited_material: false
+  selling_detail_info: MyString
+  acceptable_viewer: false
+  item_special: false
+  item_importance: 1
+  count_killed: 1
+  count_injured: 1
+  count_male: 1
+  count_female: 1

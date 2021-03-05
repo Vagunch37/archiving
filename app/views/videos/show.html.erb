@@ -1,0 +1,86 @@
+<p>
+  <strong>Name:</strong>
+  <%= @video.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @video.desc %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @video.notes %>
+</p>
+
+<p>
+  <strong>Text in:</strong>
+  <%= @video.text_in %>
+</p>
+
+<p>
+  <strong>Pub reason:</strong>
+  <%= @video.pub_reason %>
+</p>
+
+<p>
+  <strong>Rec reason:</strong>
+  <%= @video.rec_reason %>
+</p>
+
+<p>
+  <strong>Sound type:</strong>
+  <%= @video.sound_type %>
+</p>
+
+<p>
+  <strong>Edited material:</strong>
+  <%= @video.edited_material %>
+</p>
+
+<p>
+  <strong>Selling detail info:</strong>
+  <%= @video.selling_detail_info %>
+</p>
+
+<p>
+  <strong>Acceptable viewer:</strong>
+  <%= @video.acceptable_viewer %>
+</p>
+
+<p>
+  <strong>Item special:</strong>
+  <%= @video.item_special %>
+</p>
+
+<p>
+  <strong>Item importance:</strong>
+  <%= @video.item_importance %>
+</p>
+
+<p>
+  <strong>Count killed:</strong>
+  <%= @video.count_killed %>
+</p>
+
+<p>
+  <strong>Count injured:</strong>
+  <%= @video.count_injured %>
+</p>
+
+<p>
+  <strong>Count male:</strong>
+  <%= @video.count_male %>
+</p>
+
+<p>
+  <strong>Count female:</strong>
+  <%= @video.count_female %>
+</p>
+<% if @video.file.attached? %>
+<%= link_to 'Download', @video.file, download: '' %>
+<% end %>
+<br />
+<br />
+<%= link_to 'Edit', edit_video_path(@video), class:"btn btn-success" %>
+<%= link_to 'Back', videos_path, class:"btn btn-dark" %>

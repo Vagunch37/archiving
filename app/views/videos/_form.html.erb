@@ -1,0 +1,138 @@
+<%= form_with(model: video) do |form| %>
+  <% if video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+      <ul>
+        <% video.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field ">
+    <%= form.label :name %>
+    <%= form.text_field :name, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :desc %>
+    <%= form.text_area :desc, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :text_in %>
+    <%= form.text_area :text_in, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :pub_reason %>
+    <%= form.text_field :pub_reason, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :rec_reason %>
+    <%= form.text_field :rec_reason, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :sound_type %>
+    <%= form.text_field :sound_type, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :edited_material %>
+    <%= form.check_box :edited_material, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :selling_detail_info %>
+    <%= form.text_field :selling_detail_info, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :acceptable_viewer %>
+    <%= form.check_box :acceptable_viewer, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :item_special %>
+    <%= form.check_box :item_special, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :item_importance %>
+    <%= form.number_field :item_importance, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :count_killed %>
+    <%= form.number_field :count_killed, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :count_injured %>
+    <%= form.number_field :count_injured, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :count_male %>
+    <%= form.number_field :count_male, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :count_female %>
+    <%= form.number_field :count_female, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.number_field :user_id, id: :video_user_id, class:"form-control", value: current_user.id, type: :hidden %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :category_id %>
+    <div class="input-group mb-3">
+      <%= select(:video, :category_id, Category.all.collect {|c| [ c.name, c.id ] }, {:include_blank => "Select Category"}, {:class => "custom-select"} ) %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :subcategory_id %>
+    <div class="input-group mb-3">
+      <%= select(:video, :subcategory_id, Subcategory.all.collect {|c| [ c.name, c.id ] }, {:include_blank => "Select Subcategory"}, {:class => "custom-select"} ) %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :subject_id %>
+    <div class="input-group mb-3">
+      <%= select(:video, :subject_id, Subject.all.collect {|c| [ c.name, c.id ] }, {:include_blank => "Select Subject"}, {:class => "custom-select"} ) %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :language_id %>
+    <div class="input-group mb-3">
+      <%= select(:video, :language_id, Language.all.collect {|c| [ c.name, c.id ] }, {:include_blank => "Select Language"}, {:class => "custom-select"} ) %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= form.number_field :user_id, id: :video_category_id, class:"form-control", value: current_user.id, type: :hidden %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :file %>
+    <%= form.file_field :file, class: "from-control" %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit class:'btn btn-primary' %>
+  </div>
+<% end %>

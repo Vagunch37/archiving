@@ -1,0 +1,11 @@
+<p>
+  <strong>Name:</strong>
+  <%= @subcategory.name %>
+</p>
+<p>
+  <strong>Category:</strong>
+  <%= @subcategory.category.name %>
+</p>
+<br />
+<%= link_to 'Edit', edit_subcategory_path(@subcategory), class:"btn btn-success" %>
+<%= link_to 'Back', subcategories_path, class:"btn btn-dark" %>

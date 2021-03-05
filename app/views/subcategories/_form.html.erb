@@ -1,0 +1,62 @@
+<%= form_with(model: subcategory) do |form| %>
+  <% if subcategory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(subcategory.errors.count, "error") %> prohibited this subcategory from being saved:</h2>
+
+      <ul>
+        <% subcategory.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :category_id %>
+    <% collection_select(:subcategory, :category_id, Category.all, :id, :name)  %>
+
+
+    <div class="input-group mb-3">
+
+
+        <% options_from_collection_for_select(Category.all, :id, :name) %>
+
+        <% categories_array = Category.all.map { |category| [category.name, category.id] } %>
+
+        <% select(:subcategory, :category_id, options_for_select(categories_array, subcategory.category_id), {}, {:class => 'custom-select'} ) %>
+
+        <%= select(:subcategory, :category_id, Category.all.collect {|c| [ c.name, c.id ] }, {:include_blank => "Select Category"}, {:class => "custom-select"} ) %>
+
+
+
+
+
+
+
+    <%# <select class="custom-select" id="inputGroupSelect01">
+      <option selected>Choose...</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select> %>
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+
+
+  <div class="actions">
+    <%= form.submit class:'btn btn-primary' %>
+  </div>
+<% end %>
